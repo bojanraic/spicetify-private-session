@@ -22,6 +22,8 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "alwaysStrict": true,
+    "removeComments": true,
+    "pretty": true, 
     "outDir": "./dist",
     "rootDir": "./src"
   },
