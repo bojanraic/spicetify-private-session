@@ -1,6 +1,6 @@
-# Spicetify PSA - Private Session Always
+# Spicetify Private Session
 
-PSA is a simple Spicetify extension that will always enable private session. 
+Spicetify Private Session is a simple Spicetify extension that will always enable private session. 
 
 ## Made with Spicetify Creator
 - https://github.com/spicetify/spicetify-creator
