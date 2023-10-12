@@ -1,0 +1,19 @@
+{
+  "name": "spicetify-private-session",
+  "version": "1.0.0",
+  "author": {"name": "Bojan Raic"},
+  "private": true,
+  "scripts": {
+    "build": "spicetify-creator",
+    "clean": "rm -rf ./dist",
+    "build-local": "npm run clean && spicetify-creator --out=dist --minify",
+    "build-dev": "npm run clean && spicetify-creator --out=dist",
+    "watch": "spicetify-creator --watch"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
+    "spicetify-creator": "^1.0.15"
+  }
+}
