@@ -2,5 +2,6 @@
     "name": "Spicetify Private Session",
     "description": "Always start a Private Session",
     "main": "dist/spicetify-private-session.js",
+    "preview": "icon.png",
     "readme": "README.md"
 }
