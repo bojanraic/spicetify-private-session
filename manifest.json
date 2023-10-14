@@ -1,5 +1,5 @@
 {
-    "name": "Spicetify Private Session",
+    "name": "Private Session",
     "description": "Always start a Private Session",
     "main": "dist/spicetify-private-session.js",
     "preview": "icon.png",
