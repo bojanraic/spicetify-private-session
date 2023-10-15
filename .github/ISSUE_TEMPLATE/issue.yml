@@ -3,30 +3,34 @@ description: Report an issue
 labels: [issue]
 body:
   - type: input
+    id: os-version
     attributes:
       label: OS Version
-      description: OS version of the system issue is observed on
-      placeholder: macOS 14.0 (Sonoma)
-    validations:
-      required: true
-      
-  - type: input
-    attributes:
-      label: OS Version
-      description: Spotify application version
-      placeholder: 1.2.22.982.g794acc0a
+      description: "OS of the system issue is observed on"
+      placeholder: "Example: macOS Sonoma"
     validations:
       required: true
 
   - type: input
+    id: spotify-version
     attributes:
-      label: OS Version
-      description: Spicetify version
-      placeholder: 1.2.42
+      label: Spotify Version
+      description: "Affected Spotify application version"
+      placeholder: "Example: 1.21.2.123-3a22721f"
+    validations:
+      required: true
+
+  - type: input
+    id: spicetify-version
+    attributes:
+      label: Spicetify Version
+      description: "Affected Spicetify CLI version"
+      placeholder: "Example: 1.24.2"
     validations:
       required: true
 
   - type: textarea
+    id: issue-description
     attributes:
       label: Description
       description: Please explain the observed behavior and why it's an issue
