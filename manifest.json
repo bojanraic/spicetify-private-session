@@ -3,5 +3,7 @@
     "description": "Always start a Private Session",
     "main": "dist/spicetify-private-session.js",
     "preview": "icon.png",
-    "readme": "README.md"
+    "readme": "README.md", 
+    "authors": [{"name": "Bojan Raic", "url": "https://github.com/BojanRaic"}],
+    "tags": ["privacy"]
 }

@@ -1,0 +1,25 @@
+name: Issue Report
+description: Report an issue
+labels: [issue]
+body:
+  - type: textarea
+    attributes:
+      label: Environment Details
+      description: Please provide the details of the system issue is observed on
+      value: |
+        - OS version:
+        - Spotify version:
+        - Spicetify version:
+      placeholder: |
+        - macOS 14.0 (Sonoma)
+        - Spotify version: 1.2.22.982.g794acc0a
+        - Spicetify version: 2.4.2
+      render: Markdown
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Description
+      description: Please explain the observed behavior and why it's an issue
+    validations:
+      required: true
