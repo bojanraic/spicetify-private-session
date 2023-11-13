@@ -8,7 +8,9 @@
     "clean": "rm -rf ./dist",
     "build-local": "npm run clean && spicetify-creator --out=dist --minify",
     "build-dev": "npm run clean && spicetify-creator --out=dist",
-    "watch": "spicetify-creator --watch"
+    "watch": "spicetify-creator --watch", 
+    "deploy-local": "cp dist/spicetify-private-session.js `spicetify path userdata`/Extensions",
+    "local":"npm run build-local && npm run deploy-local && spicetify apply && spicetify enable-devtools"
   },
   "license": "MIT",
   "devDependencies": {
