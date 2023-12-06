@@ -1,25 +1,52 @@
-const PRIVATE_SESSION_INDICATOR_SELECTOR: string = "button.main-noConnection-button";
-const MAIN_MENU_SELECTOR: string = "button.main-userWidget-boxCondensed";
-const MAIN_MENU_ITEMS_SELECTOR: string = ".main-contextMenu-menuItem";
-const MENU_ITEM_LABEL_SELECTOR: string = ".main-contextMenu-menuItemLabel";
-const MENU_ITEM_BUTTON_SELECTOR: string = "button.main-contextMenu-menuItemButton";
-const PRIVATE_SESSION_MENU_ITEM_TEXT: string = "Private session";
+// Selectors
+const SELECTORS = {
+    PRIVATE_SESSION_INDICATOR: "button.main-noConnection-button",
+    MAIN_MENU: "button.main-userWidget-boxCondensed",
+    MENU_ITEM_LABEL: "span.main-contextMenu-menuItemLabel",
+    MENU_ITEM_BUTTON: "ul.main-contextMenu-menu > li > button",
+};
 
-(async () => {
-    const init: (condition: () => boolean, callback: () => void) => void = (condition, callback) => condition() ? callback() : setTimeout(() => init(condition, callback), 250);
-    init(() => Spicetify.Platform, () => {
-        if (!(document.querySelector(PRIVATE_SESSION_INDICATOR_SELECTOR) as HTMLButtonElement)) {
-            const mainMenuBtn = (document.querySelector(MAIN_MENU_SELECTOR) as HTMLButtonElement);
-            mainMenuBtn.click();
-            const menuItems = Array.from(document.querySelectorAll(MAIN_MENU_ITEMS_SELECTOR));
-            for (const item of menuItems) {
-              const labelTxt = item.querySelector(MENU_ITEM_LABEL_SELECTOR)?.textContent;
-              if (labelTxt === PRIVATE_SESSION_MENU_ITEM_TEXT) {
-                const privateSessionMenuItem = item.querySelector(MENU_ITEM_BUTTON_SELECTOR) as HTMLButtonElement;
-                privateSessionMenuItem.click();
+// Labels
+const LABELS = {
+    PRIVATE_SESSION_MENU_ITEM: "Private session",
+};
+
+// Initialization function
+const init = (condition: { (): any; (): any; }, callback: { (): void; (): void; }) => {
+    if (condition()) {
+        callback();
+    } else {
+        setTimeout(() => init(condition, callback), 150);
+    }
+};
+
+// starts private session from main menu 
+const startPrivateSession = () => {
+    const elements = document.querySelectorAll(SELECTORS.MENU_ITEM_BUTTON);
+    const menuButtons = Array.from(elements);
+
+    if (menuButtons.length > 0) {
+        for (const btn of menuButtons) {
+            const mb = btn as HTMLButtonElement;
+            const labelTxt = mb.querySelector(SELECTORS.MENU_ITEM_LABEL)?.textContent;
+
+            if (labelTxt === LABELS.PRIVATE_SESSION_MENU_ITEM) {
+                mb.click();
                 break;
-              }
             }
+        }
+    } else {
+        setTimeout(startPrivateSession, 50);
+    }
+};
+
+// Main function
+(async () => {
+    init(() => Spicetify.Platform, () => {
+        if (!(document.querySelector(SELECTORS.PRIVATE_SESSION_INDICATOR) as HTMLButtonElement)) {
+            const mainMenuBtn = (document.querySelector(SELECTORS.MAIN_MENU) as HTMLButtonElement);
+            mainMenuBtn.click();
+            startPrivateSession();
         }
     });
 })();
