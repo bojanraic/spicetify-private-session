@@ -30,6 +30,14 @@ body:
       required: true
 
   - type: textarea
+    id: spicetify-extensions
+    attributes:
+      label: Other Spicetify Extensions Installed
+      description: Please list other installed/enabled Spicetify extensions; type None if you're only using Private Session 
+    validations:
+      required: true
+
+  - type: textarea
     id: issue-description
     attributes:
       label: Description
